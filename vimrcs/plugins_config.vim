@@ -165,6 +165,16 @@ func! SyntasticCheckCoffeescript()
 endfunc
 nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
 
+" Add addtional include directories for cpp
+" C++ custom config file
+let g:syntastic_cpp_config_file = '~/.my_custom_cpp_config'
+let g:syntastic_cpp_include_dirs = [ '/Users/seokhyun/workspace/cereal/include' ]
+
+" Toggle syntastic check by ctrl + w E
+" from this: https://stackoverflow.com/questions/20030603/vim-syntastic-how-to-disable-the-checker
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)
